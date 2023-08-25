@@ -10,14 +10,15 @@ export const useAboutPageStyle = makeStyles((theme: Theme) => ({
     height: "85%",
     width: "65%",
     transform: "rotateY(180deg)",
+    [theme.breakpoints.down("lg")]: {
+      width: "80%",
+    },
     [theme.breakpoints.down("md")]: {
-      transform: "rotateY(180deg)",
       height: "80%",
       width: "80%",
       marginBottom: "32.5%",
     },
     [theme.breakpoints.down("sm")]: {
-      transform: "rotateY(180deg)",
       height: "80%",
       width: "80%",
     },

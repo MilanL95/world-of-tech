@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { useSolutionsPageStyle } from "./solutionsPageStyle";
 import { IoArrowBackCircle } from "react-icons/io5";
 import Chart from "react-apexcharts";
-import Footer from "../../components/footer";
+import Footer from "../../features/footer/footer";
 
 const chartOptions = {
   chart: {

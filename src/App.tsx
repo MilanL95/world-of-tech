@@ -1,10 +1,10 @@
 import React from "react";
-import LoginPage from "./features/pages/loginPage";
+import LoginPage from "./pages/loginPage/loginPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AboutPage from "./features/pages/aboutPage";
-import HomePage from "./features/pages/homePage";
-import ServicesPage from "./features/pages/servicesPage";
-import SolutionsPage from "./features/pages/solutionsPage";
+import AboutPage from "./pages/aboutPage/aboutPage";
+import HomePage from "./pages/homePage/homePage";
+import ServicesPage from "./pages/servicePage/servicesPage";
+import SolutionsPage from "./pages/solutionsPage/solutionsPage";
 
 function App() {
   return (

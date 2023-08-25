@@ -1,11 +1,11 @@
 import { useServicesPageStyle } from "./servicesPageStyle";
 import { Grid, Typography } from "@mui/material";
-import MyCard from "../../components/myCard";
+import MyCard from "../../features/card/myCard";
 import { Link } from "react-router-dom";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { MdSettings, MdBuild, MdLock } from "react-icons/md";
 import Fade from "react-reveal/Fade";
-import Footer from "../../components/footer";
+import Footer from "../../features/footer/footer";
 
 const ServicesPage = () => {
   const classes = useServicesPageStyle();

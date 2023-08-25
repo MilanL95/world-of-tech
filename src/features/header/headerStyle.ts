@@ -52,11 +52,13 @@ export const useHeaderStyle = makeStyles((theme: Theme) => ({
   search: {
     position: "relative",
     borderRadius: 20,
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
     backgroundColor: "rgba(255, 255, 255, 0.2)",
     "&:hover": {
       backgroundColor: "rgba(255, 255, 255, 0.3)",
     },
-    maxWidth: 500,
     [theme.breakpoints.up("sm")]: {
       width: "auto",
     },
@@ -77,8 +79,7 @@ export const useHeaderStyle = makeStyles((theme: Theme) => ({
     marginLeft: "30%",
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {

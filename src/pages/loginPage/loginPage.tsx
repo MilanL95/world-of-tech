@@ -1,7 +1,7 @@
 import { Button, TextField, Grid, Typography } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import { useState } from "react";
-import ForgotPasswordModal from "../modals/forgotPasswordModal";
+import ForgotPasswordModal from "../../features/modals/forgotPasswordModal";
 import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
@@ -44,7 +44,6 @@ const LoginPage = () => {
       setPasswordError(false);
     }
     if (!emailError && !passwordError) {
-      console.log(`Logging in with email: ${email} and password: ${password}`);
       navigate("/home");
     }
   };

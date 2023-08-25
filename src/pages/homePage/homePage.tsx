@@ -1,18 +1,19 @@
 import { Grid, IconButton, Typography } from "@mui/material";
 import { useHomePageStyle } from "./homePageStyle";
-import Asstronaut from "../../components/asstronaut/asstronaut";
+
 import ComputerIcon from "@mui/icons-material/Computer";
 import { useState } from "react";
-import WebDesignerModal from "../modals/webDesignerModal";
-import FrontEndDeveloperModal from "../modals/frontEndModal";
-import BackEndDeveloperModal from "../modals/backEndDeveloperModal";
-import QATester from "../modals/qaTesterModal";
+import WebDesignerModal from "../../features/modals/webDesignerModal";
+import FrontEndDeveloperModal from "../../features/modals/frontEndModal";
+import BackEndDeveloperModal from "../../features/modals/backEndDeveloperModal";
+import QATester from "../../features/modals/qaTesterModal";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import Header from "../../components/header";
-import Footer from "../../components/footer";
+import Header from "../../features/header/header";
+import Footer from "../../features/footer/footer";
 import Fade from "react-reveal/Fade";
+import Asstronaut from "../../features/asstronaut/asstronaut";
 
 const HomePage = () => {
   const classes = useHomePageStyle();
