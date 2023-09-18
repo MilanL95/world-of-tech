@@ -8,6 +8,7 @@ interface ModalWDProps {
 }
 
 const useWebDesignerModalStyle = makeStyles((theme: any) => ({
+  // Modal Styles
   modal: {
     position: "fixed",
     top: 0,
@@ -20,20 +21,7 @@ const useWebDesignerModalStyle = makeStyles((theme: any) => ({
     justifyContent: "center",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
-  wdModalTitle: {
-    textAlign: "center",
-    fontFamily: "space",
-    fontSize: "32px",
-    backgroundColor: "rgba(0, 0, 0, 0.8) !important",
-    color: "#FFFFFF",
-    width: "100%",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 24,
-    },
-  },
+  // Modal Content Styles
   modalContent: {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: "5px",
@@ -61,6 +49,21 @@ const useWebDesignerModalStyle = makeStyles((theme: any) => ({
       height: "85%",
     },
   },
+  // Typography Styles
+  wdModalTitle: {
+    textAlign: "center",
+    fontFamily: "space",
+    fontSize: "32px",
+    backgroundColor: "rgba(0, 0, 0, 0.8) !important",
+    color: "#FFFFFF",
+    width: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 24,
+    },
+  },
   descriptionWD: {
     textAlign: "center",
     fontFamily: "space",
@@ -75,6 +78,7 @@ const useWebDesignerModalStyle = makeStyles((theme: any) => ({
       fontSize: "18px !important",
     },
   },
+  // Button Styles
   buttonContainer: {
     position: "absolute",
     bottom: 10,

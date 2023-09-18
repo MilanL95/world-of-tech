@@ -5,47 +5,45 @@ import ForgotPasswordModal from "../../features/modals/forgotPasswordModal";
 import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
-const useLoginPageStyle = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   textField: {
     width: "100%",
     maxWidth: "450px",
-    "& label.Mui-focused": {
-      color: "#000000",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#000000",
+    "& label.Mui-focused": { color: "#000000" },
+    "& .MuiInput-underline:after": { borderBottomColor: "#000000" },
+    [theme.breakpoints.down("sm")]: {
+      "& label": { fontSize: "0.85rem" },
     },
   },
-  labelRoot: {
-    color: "#000000 !important",
+  labelRoot: { color: "#000000 !important" },
+  errorText: { color: "#FF0000" },
+  loginImg: { width: "100%", height: "100%", objectFit: "cover" },
+  headerLarge: {
+    fontFamily: "cursive !important",
+    marginBottom: "4% !important",
+    [theme.breakpoints.down("sm")]: { fontSize: "2rem !important" },
   },
-  errorText: {
-    color: "#FF0000",
+  headerSmall: {
+    fontFamily: "cursive !important",
+    marginBottom: "4% !important",
+    [theme.breakpoints.down("sm")]: { fontSize: "1.5rem !important" },
   },
 }));
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const classes = useStyles();
   const navigate = useNavigate();
-  const classes = useLoginPageStyle();
+
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [emailError, setEmailError] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<boolean>(false);
 
   const handleLogin = () => {
-    if (!email.includes("@")) {
-      setEmailError(true);
-    } else {
-      setEmailError(false);
-    }
-    if (password.length < 6) {
-      setPasswordError(true);
-    } else {
-      setPasswordError(false);
-    }
-    if (!emailError && !passwordError) {
-      navigate("/home");
-    }
+    setEmailError(!email.includes("@"));
+    setPasswordError(password.length < 6);
+
+    if (!emailError && !passwordError) navigate("/home");
   };
 
   return (
@@ -67,11 +65,7 @@ const LoginPage = () => {
         <img
           src={require("../../images/loginPageImage.jpg")}
           alt="background"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          className={classes.loginImg}
         />
       </Grid>
       <Grid
@@ -95,18 +89,12 @@ const LoginPage = () => {
           style={{ padding: "20px", marginBottom: "10%" }}
         >
           <Grid item xs={12}>
-            <Typography
-              variant="h2"
-              style={{ fontFamily: "cursive", marginBottom: "5%" }}
-            >
+            <Typography variant="h2" className={classes.headerLarge}>
               Our World
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography
-              variant="h4"
-              style={{ fontFamily: "cursive", marginBottom: "5%" }}
-            >
+            <Typography variant="h4" className={classes.headerSmall}>
               The world of technology !
             </Typography>
           </Grid>
@@ -159,11 +147,11 @@ const LoginPage = () => {
               style={{
                 backgroundColor: "#000000",
                 color: "white",
-                height: "32px",
+                height: "35px",
                 borderRadius: "20px",
                 width: "100%",
-                maxWidth: "200px",
-                marginTop: "5%",
+                maxWidth: "225px",
+                marginTop: "4.5%",
               }}
             >
               <LoginIcon style={{ marginRight: "10px" }} />

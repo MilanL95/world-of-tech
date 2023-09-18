@@ -1,131 +1,57 @@
 import { Grid, IconButton, Typography } from "@mui/material";
 import { useHomePageStyle } from "./homePageStyle";
-
-import ComputerIcon from "@mui/icons-material/Computer";
-import { useState } from "react";
 import WebDesignerModal from "../../features/modals/webDesignerModal";
 import FrontEndDeveloperModal from "../../features/modals/frontEndModal";
 import BackEndDeveloperModal from "../../features/modals/backEndDeveloperModal";
 import QATester from "../../features/modals/qaTesterModal";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import Header from "../../features/header/header";
 import Footer from "../../features/footer/footer";
 import Fade from "react-reveal/Fade";
-import Asstronaut from "../../features/asstronaut/asstronaut";
+import useHomePageFunctionalities from "./useHomePageFunctionalities";
 
 const HomePage = () => {
   const classes = useHomePageStyle();
-  const [webDesignerModalOpen, setWebDesignerModalOpen] = useState(false);
-  const [frontEndDeveloperModalOpen, setFrontEndDeveloperModalOpen] =
-    useState(false);
-  const [backEndDeveloperOpen, setBackEndDeveloperOpen] = useState(false);
-  const [qaTester, setQaTester] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isAnimationPaused, setAnimationPaused] = useState(false);
-
-  const totalNumberOfPages = 2;
-  let title, content, icon;
-
-  const toolsImages = [
-    require("../../images/html-5.png"),
-    require("../../images/css-3.png"),
-    require("../../images/java-script.png"),
-    require("../../images/typescript.png"),
-    require("../../images/atom.png"),
-    require("../../images/brands.png"),
-    require("../../images/nodejs.png"),
-    require("../../images/java.png"),
-    require("../../images/c-sharp.png"),
-    require("../../images/website.png"),
-    require("../../images/c-.png"),
-  ];
-
-  if (currentPage === 1) {
-    title = "Technologies";
-    content = (
-      <Typography variant="body1">
-        "Technological progress continuously transforms the world and brings new
-        possibilities in various spheres <br /> of life, including information
-        technology, medicine, communication, transportation, industry, and many
-        other fields."
-      </Typography>
-    );
-    icon = (
-      <ComputerIcon
-        style={{ width: 100, height: 100, color: "rgba(0, 0, 0, 0.8)" }}
-      />
-    );
-  } else if (currentPage === 2) {
-    title = "Different Technologies";
-    content = (
-      <Typography variant="body1">
-        "Different technological advancements shape our world and open up <br />
-        new horizons in areas such as data science, renewable energy, space
-        exploration, and beyond."
-      </Typography>
-    );
-    icon = (
-      <SupportAgentIcon
-        style={{ width: 100, height: 100, color: "rgba(0, 0, 0, 0.8)" }}
-      />
-    );
-  }
-
-  const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
-  };
-
-  const handlePreviousPage = () => {
-    setCurrentPage(currentPage - 1);
-  };
-
-  const handleModalWDOpen = () => {
-    setWebDesignerModalOpen(true);
-  };
-
-  const handleModalWDClose = () => {
-    setWebDesignerModalOpen(false);
-  };
-
-  const handleModalFEDOpen = () => {
-    setFrontEndDeveloperModalOpen(true);
-  };
-
-  const handleModalFEDClose = () => {
-    setFrontEndDeveloperModalOpen(false);
-  };
-  const handleModalBEDOpen = () => {
-    setBackEndDeveloperOpen(true);
-  };
-
-  const handleModalBEDClose = () => {
-    setBackEndDeveloperOpen(false);
-  };
-
-  const handleModalQAOpen = () => {
-    setQaTester(true);
-  };
-
-  const handleModalQAClose = () => {
-    setQaTester(false);
-  };
+  const {
+    title,
+    content,
+    icon,
+    toolsImages,
+    webDesignerModalOpen,
+    frontEndDeveloperModalOpen,
+    backEndDeveloperOpen,
+    qaTester,
+    currentPage,
+    isAnimationPaused,
+    handleNextPage,
+    handlePreviousPage,
+    handleModalWDOpen,
+    handleModalWDClose,
+    handleModalFEDOpen,
+    handleModalFEDClose,
+    handleModalBEDOpen,
+    handleModalBEDClose,
+    handleModalQAOpen,
+    handleModalQAClose,
+    setAnimationPaused,
+    totalNumberOfPages,
+  } = useHomePageFunctionalities();
 
   return (
     <Grid container>
       <Header />
       <Grid className={classes.grid} item xs={12}>
         <img
-          src={require("../../images/homePageTopImg.jpg")}
+          src={require("../../images/homePage.jpg")}
           alt="background"
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
+            objectPosition: "center",
           }}
         />
-        <Asstronaut />
       </Grid>
       <Grid container xs={12} className={classes.mouseIcon} alignItems="center">
         <Grid item>
@@ -201,6 +127,7 @@ const HomePage = () => {
                 fontFamily: "cursive",
                 fontWeight: "bold",
                 fontSize: "18px",
+                color: "rgba(0, 0, 0, 0.7)",
               }}
               className={classes.webDesign}
               onClick={handleModalWDOpen}
@@ -230,6 +157,7 @@ const HomePage = () => {
               fontFamily: "cursive",
               fontWeight: "bold",
               fontSize: "18px",
+              color: "rgba(0, 0, 0, 0.7)",
             }}
             className={classes.frontEnd}
             onClick={handleModalFEDOpen}
@@ -258,6 +186,7 @@ const HomePage = () => {
               fontFamily: "cursive",
               fontWeight: "bold",
               fontSize: "18px",
+              color: "rgba(0, 0, 0, 0.7)",
             }}
             className={classes.backEnd}
             onClick={handleModalBEDOpen}
@@ -283,6 +212,7 @@ const HomePage = () => {
               fontFamily: "cursive",
               fontWeight: "bold",
               fontSize: "18px",
+              color: "rgba(0, 0, 0, 0.7)",
             }}
             className={classes.qaTester}
             onClick={handleModalQAOpen}
@@ -298,7 +228,7 @@ const HomePage = () => {
         >
           <Fade top>
             <Typography
-              variant="h3"
+              variant="h4"
               align="center"
               className={classes.title}
               style={{ fontFamily: "cursive" }}
@@ -306,6 +236,7 @@ const HomePage = () => {
               Programming Tools
             </Typography>
             <Typography
+              variant="body1"
               className={classes.text}
               style={{ fontFamily: "space" }}
             >
@@ -333,14 +264,7 @@ const HomePage = () => {
             </Typography>
           </Fade>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          className={classes.marqueeContainer}
-          onMouseEnter={() => setAnimationPaused(true)}
-          onMouseLeave={() => setAnimationPaused(false)}
-        >
+        <Grid item xs={12} sm={12} className={classes.marqueeContainer}>
           <Grid
             className={`${classes.marqueeWrapper} ${
               isAnimationPaused ? classes.marqueePaused : ""
@@ -352,6 +276,8 @@ const HomePage = () => {
                 src={image}
                 alt=""
                 className={classes.toolItemImage}
+                onMouseEnter={() => setAnimationPaused(true)}
+                onMouseLeave={() => setAnimationPaused(false)}
               />
             ))}
           </Grid>

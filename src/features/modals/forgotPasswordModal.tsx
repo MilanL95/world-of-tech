@@ -3,6 +3,7 @@ import { Button, Grid, Modal, TextField, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 
 const useForgotPasswordStyle = makeStyles((theme) => ({
+  // Modal Container Styles
   modalContainer: {
     position: "absolute",
     top: "50%",
@@ -16,34 +17,59 @@ const useForgotPasswordStyle = makeStyles((theme) => ({
       width: "90%",
     },
   },
+  // TextField Styles
   textField: {
     width: "100%",
     marginBottom: "10px",
     "& label.Mui-focused": {
-      color: "#000000",
+      color: "rgba(0, 0, 0, 0.7)",
     },
     "& .MuiInput-underline:after": {
       borderBottomColor: "#000000",
     },
+    [theme.breakpoints.down("sm")]: {
+      "& label": {
+        fontSize: "0.85rem",
+      },
+    },
   },
   labelRoot: {
-    color: "#000000 !important",
+    color: "rgba(0, 0, 0, 0.7) !important",
   },
+  errorLabel: {
+    "&.Mui-focused": {
+      color: "#FF0000 !important",
+    },
+  },
+  // Error Text Styles
   errorText: {
     color: "#FF0000",
   },
+  // Typography Styles
   forgotPass: {
     [theme.breakpoints.down("sm")]: {
-      fontSize: "17.5px !important",
+      fontSize: "16px !important",
     },
   },
 }));
 
 const ForgotPasswordModal = () => {
   const classes = useForgotPasswordStyle();
-  const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState(false);
+  
+  const [open, setOpen] = useState<boolean>(false);
+  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [emailError, setEmailError] = useState<boolean>(false);
+
+  const emailIsValid = (email: any) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleForgotPassword = () => {
+    setButtonClicked(true);
+    const isValidEmail = email.includes("@") && email.includes(".");
+    setEmailError(!isValidEmail);
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -51,15 +77,9 @@ const ForgotPasswordModal = () => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleForgotPassword = () => {
-    if (!email.includes("@")) {
-      setEmailError(true);
-    } else {
-      setEmailError(false);
-    }
-    console.log("Sending forgot password request...");
+    setEmail("");
+    setEmailError(false);
+    setButtonClicked(false);
   };
 
   return (
@@ -68,7 +88,6 @@ const ForgotPasswordModal = () => {
         style={{
           fontSize: "18px",
           color: "#000000",
-          textDecoration: "underline",
           cursor: "pointer",
           marginTop: "5%",
           fontFamily: "space",
@@ -94,12 +113,18 @@ const ForgotPasswordModal = () => {
             label="E-mail"
             variant="standard"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            error={emailError}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setEmailError(!emailIsValid(e.target.value));
+            }}
+            error={buttonClicked && emailError}
             helperText={emailError && "Please enter a valid email !"}
             InputLabelProps={{
               classes: {
-                root: emailError ? classes.errorText : classes.labelRoot,
+                root:
+                  buttonClicked && emailError
+                    ? `${classes.errorText} ${classes.errorLabel}`
+                    : classes.labelRoot,
               },
             }}
             className={classes.textField}
@@ -118,17 +143,6 @@ const ForgotPasswordModal = () => {
           </Button>
         </Grid>
       </Modal>
-      {/* <style>
-        {`
-        @keyframes wave {
-            0% { transform: translate(-50%, -50%) translateX(-30px); }
-            25% { transform: translate(-50%, -50%) translateX(0); }
-            50% { transform: translate(-50%, -50%) translateX(30px); }
-            75% { transform: translate(-50%, -50%) translateX(0); }
-            100% { transform: translate(-50%, -50%) translateX(-30px); }
-          }
-        `}
-      </style> */}
     </Grid>
   );
 };

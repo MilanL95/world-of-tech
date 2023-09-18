@@ -9,26 +9,26 @@ import { useState } from "react";
 const Footer = () => {
   const classes = useFooterStyle();
 
-  const [languageIcon, setLanguageIcon] = useState(null);
-  const [callingIcon, setCallingIcon] = useState(null);
-  const [wiFiIcon, setWiFiIcon] = useState(null);
+  const [languageIcon, setLanguageIcon] = useState<null>(null);
+  const [callingIcon, setCallingIcon] = useState<null>(null);
+  const [wiFiIcon, setWiFiIcon] = useState<null>(null);
 
-  const handleClickLanguageIcon = (event: any) => {
-    setLanguageIcon(event.currentTarget);
+  const handleClickLanguageIcon = (e: any) => {
+    setLanguageIcon(e.currentTarget);
     setTimeout(() => {
       setLanguageIcon(null);
     }, 2000);
   };
 
-  const handleClickCallingIcon = (event: any) => {
-    setCallingIcon(event.currentTarget);
+  const handleClickCallingIcon = (e: any) => {
+    setCallingIcon(e.currentTarget);
     setTimeout(() => {
       setCallingIcon(null);
     }, 5000);
   };
 
-  const handleClickWiFiIcon = (event: any) => {
-    setWiFiIcon(event.currentTarget);
+  const handleClickWiFiIcon = (e: any) => {
+    setWiFiIcon(e.currentTarget);
     setTimeout(() => {
       setWiFiIcon(null);
     }, 2000);

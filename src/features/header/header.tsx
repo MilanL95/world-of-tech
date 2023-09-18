@@ -18,8 +18,9 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const classes = useHeaderStyle();
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,21 +75,21 @@ const Header = () => {
                 <CloseIcon />
               </IconButton>
               <List className={classes.linkContainer}>
-                <ListItem component={Link} to={"/about"}>
+                <ListItem>
                   <ListItemText
                     primary="About"
                     classes={{ primary: classes.listItemText }}
                   />
                 </ListItem>
                 <Divider />
-                <ListItem component={Link} to={"/services"}>
+                <ListItem>
                   <ListItemText
                     primary="Services"
                     classes={{ primary: classes.listItemText }}
                   />
                 </ListItem>
                 <Divider />
-                <ListItem component={Link} to={"/solutions"}>
+                <ListItem>
                   <ListItemText
                     primary="Solutions"
                     classes={{ primary: classes.listItemText }}

@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import { Theme } from "@mui/material/styles";
 
 export const useHeaderStyle = makeStyles((theme: Theme) => ({
+  // Header Container Styles
   box: {
     width: "100%",
     position: "fixed",
@@ -17,9 +18,10 @@ export const useHeaderStyle = makeStyles((theme: Theme) => ({
     left: 0,
     zIndex: 999,
   },
+  // Toolbar Styles
   toolbar: {
     height: "50px",
-    backgroundColor: "rgba(56, 56, 56, 0.5)",
+    backgroundColor: "rgba(56, 56, 56, 0.9)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -29,21 +31,24 @@ export const useHeaderStyle = makeStyles((theme: Theme) => ({
     marginLeft: "auto !important",
     marginRight: "auto !important",
   },
+  // Drawer Styles
   drawer: {
     width: 180,
   },
   listItemText: {
-    fontSize: "24px !important",
+    fontSize: "20px !important",
     fontFamily: "space !important",
     color: "rgba(0, 0, 0, 0.8)",
+    cursor: "pointer",
     "&:focus, &:hover": {
       textDecoration: "underline",
-      fontSize: "26px !important",
+      fontSize: "22px !important",
     },
     "&:active": {
       color: "#000000",
     },
   },
+  // Search Styles
   searchContainer: {
     display: "flex",
     alignItems: "center",
@@ -83,7 +88,7 @@ export const useHeaderStyle = makeStyles((theme: Theme) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch",
+      width: "20wh",
     },
     "&::placeholder": {
       color: "#FFFFFF !important",

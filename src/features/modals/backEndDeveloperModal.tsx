@@ -8,6 +8,7 @@ interface ModalBEDProps {
 }
 
 const useBackEndDeveloperStyle = makeStyles((theme: any) => ({
+  // Modal Base Styles
   modal: {
     position: "fixed",
     top: 0,
@@ -20,6 +21,7 @@ const useBackEndDeveloperStyle = makeStyles((theme: any) => ({
     justifyContent: "center",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
+  // Modal Title Styles
   bedModalTitle: {
     textAlign: "center",
     fontFamily: "space",
@@ -34,6 +36,7 @@ const useBackEndDeveloperStyle = makeStyles((theme: any) => ({
       fontSize: 24,
     },
   },
+  // Modal Content Styles
   modalContent: {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: "5px",
@@ -60,6 +63,7 @@ const useBackEndDeveloperStyle = makeStyles((theme: any) => ({
       height: "75%",
     },
   },
+  // Description Styles
   descriptionBED: {
     textAlign: "center",
     fontFamily: "space",
@@ -74,6 +78,7 @@ const useBackEndDeveloperStyle = makeStyles((theme: any) => ({
       fontSize: "18px !important",
     },
   },
+  // Button Container Styles
   buttonContainer: {
     position: "absolute",
     bottom: 10,
@@ -82,6 +87,7 @@ const useBackEndDeveloperStyle = makeStyles((theme: any) => ({
     display: "flex",
     justifyContent: "flex-end",
   },
+  // Button Styles
   button: {
     backgroundColor: "rgba(0, 0, 0, 0.8) !important",
     color: "#FFFFFF !important",
